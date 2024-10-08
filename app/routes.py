@@ -7,6 +7,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
+    """Handles file submission and saving"""
     if request.method == 'POST':
         if 'file' not in request.files:
             return jsonify({'error': 'No file part'})
@@ -30,6 +31,7 @@ def index():
 
 @main.route('/chat', methods=['POST'])
 def chat():
+    """Handles ai interaction with users chat and context"""
     data = request.json
     question = data.get('question')
     context = data.get('context')
