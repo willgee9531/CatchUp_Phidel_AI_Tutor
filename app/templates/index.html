@@ -1,61 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Chat System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #333;
-        }
-        #fileInput {
-            margin-bottom: 20px;
-        }
-        #chatContainer {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        #documentContent {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 20px;
-        }
-        #questionInput {
-            width: 70%;
-            padding: 5px;
-        }
-        #askButton {
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        #responseContainer {
-            margin-top: 20px;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Document Chat System</h1>
-    <input type="file" id="fileInput" accept=".txt,.pdf,.docx,.json">
-    <div id="chatContainer" style="display: none;">
-        <textarea id="documentContent" readonly></textarea>
-        <input type="text" id="questionInput" placeholder="Ask a question about the document">
-        <button id="askButton">Ask</button>
-        <div id="responseContainer"></div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CatchUp Chat box</title>
+
+    <!-- Google Font & Font Awesome icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css')
+    }}" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="topbar">
+        <a href="#"
+          ><img
+            src="{{ url_for('static', filename='img/phidelLogo.png') }}"
+            alt=""
+            width="40"
+        /></a>
+        <span style="margin-left: -7px">CatchUp</span>
+        <span class="tag">Phidel AI Tutor 1.0</span>
+      </div>
+
+      <!-- welcome card -->
+      <div class="maincontent">
+        <section class="welcome prompt1">
+          <div class="welcome__header">
+            <i class="fa-brands fa-openai"></i>
+            <h2>How can I help you today?</h2>
+            <p>
+              Missed a class? Upload the topic in your notes and select a task
+              to get started. You can choose to explain, solve, or test your
+              knowledge on the topic.
+            </p>
+          </div>
+
+          <textarea
+            name=""
+            id="documentContent"
+            style="display: none"></textarea>
+
+          <form action="">
+            <div class="searchcontainer">
+              <input
+                class="uploadcont"
+                type="file"
+                name=""
+                id="fileInput"
+                accept=".txt, .docx, .pdf, .json" />
+
+              <select name="" id="taskInput">
+                <option value="" selected>--- Select Task ---</option>
+                <option value="Explain">Explain</option>
+                <option value="Solve">Solve</option>
+                <option value="Test Me">Test Me</option>
+              </select>
+
+              <select name="" id="classInput">
+                <option value="" selected>--- Select Class ---</option>
+                <option value="Grade 7">JSS 1: Grade 7</option>
+                <option value="Grade 8">JSS 2: Grade 8</option>
+                <option value="Grade 9">JSS 3: Grade 9</option>
+                <option value="Grade 10">SSS 1: Grade 10</option>
+                <option value="Grade 11">SSS 2: Grade 11</option>
+                <option value="Grade 12">SSS 3: Grade 12</option>
+              </select>
+              <div class="button-set">
+                <button type="reset">Reset</button>
+                <button type="submit" id="generateBtn">Generate</button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <section class="welcome prompt1 display" id="chatContainer">
+          <div name="" id="responseContainer"></div>
+          <button type="reset" id="copyBtn">Copy as text</button>
+        </section>
+      </div>
+
+      <footer class="footer">
+        AI models can not replace human tutors and can make mistakes. Consider
+        checking important information.
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
+  </body>
 </html>

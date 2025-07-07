@@ -26,22 +26,23 @@ def index():
         except Exception as e:
             traceback.print_exc()
             return jsonify({'error': str(e)})
-        
     return render_template('index.html')
 
 @main.route('/chat', methods=['POST'])
 def chat():
     """Handles ai interaction with users chat and context"""
     data = request.json
-    question = data.get('question')
+    task_value = data.get('taskInputValue')
+    class_value = data.get('classInputValue')
     context = data.get('context')
     
-    if not question or not context:
+    if not task_value or not class_value or not context:
         return jsonify({'error': 'Missing question or context'})
     
     try:
-        response = get_ai_response(question, context)
+        response = get_ai_response(task_value, class_value, context)
         return jsonify({'response': response})
     except Exception as e:
         traceback.print_exc()
         return jsonify({'error': str(e)})
+    

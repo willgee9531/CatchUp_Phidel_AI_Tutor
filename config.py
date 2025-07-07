@@ -1,5 +1,3 @@
-import os
-
 class Config:
     SECRET_KEY = 'just-for-development-alone'
     UPLOAD_FOLDER = 'uploads'

@@ -60,13 +60,20 @@ def extract_text(filepath):
     else:
         raise ValueError("Unsupported file type")
 
-def get_ai_response(prompt, context):
+def get_ai_response(task_prompt, class_prompt, context):
+    task = task_prompt
+    if task_prompt == "Test Me":
+        task = 'Test Me with 10 different questions. Each question should be unique and cover different aspects of the context. Provide the answers to these questions as well after the end of the last question.'
+    else:
+        task = task_prompt
+
     client = Client()
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+    response = client.chat.completions.create(  
+        model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": f"You are a helpful assistant. Use this context to answer questions: {context}"},
-            {"role": "user", "content": prompt}
-        ]
+            {"role": "system", "content": f"You are a helpful assistant. Use this context to answer questions always. Be consistent and whatever question asked, use this context: {context}. No preamble like saying 'Sure!' or conclusion, just answer the question."},
+            {"role": "user", "content": f"Using this context: {context} i want you to {task}. My class level is {class_prompt}."}
+        ],
+        web_search=False
     )
     return response.choices[0].message.content
