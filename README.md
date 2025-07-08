@@ -29,22 +29,22 @@ _Generated Response_
 
 ## Features
 
-- Document Upload: Students can upload documents in various formats (PDF, DOCX, TXT, JSON).
-- Chat Interface: Students can interact with the uploaded documents through a form-based chat interface.
-- AI Tutor: The Phidel AI tutor can explain concepts, solve problems, and test students on the topics covered in the documents.
-- Class Level Support: The system supports different class levels, allowing students to upload documents relevant to their studies.
-- Document Search: Students can search for specific topics within the uploaded documents.
-- Document Processing: Processes documents to extract text and generate embeddings.
-- Document Embeddings: Uses embeddings to represent document content for efficient retrieval and interaction.
-- Responsive Design: The application is designed to be responsive and user-friendly across devices.
-- Error Handling: Includes error handling for file uploads and interactions.
+- **Document Upload:** Students can upload documents in various formats (PDF, DOCX, TXT, JSON).
+- **Chat Interface:** Students can interact with the uploaded documents through a form-based chat interface.
+- **AI Tutor:** The Phidel AI tutor can explain concepts, solve problems, and test students on the topics covered in the documents.
+- **Class Level Support:** The system supports different class levels, allowing students to upload documents relevant to their studies.
+- **Document Search:** Students can search for specific topics within the uploaded documents.
+- **Document Processing:** Processes documents to extract text and generate embeddings.
+- **Document Embeddings:** Uses embeddings to represent document content for efficient retrieval and interaction.
+- **Responsive Design:** The application is designed to be responsive and user-friendly across devices.
+- **Error Handling:** Includes error handling for file uploads and interactions.
 
 ## Technologies Used:
 
-- Flask: Web framework for building the application.
-- Vector Database: For storing and retrieving document embeddings.
-- HTML/CSS/JavaScript: For the front-end interface.
-- Jinja2: Templating engine for rendering HTML pages.
+- **Flask:** Web framework for building the application.
+- **Vector Database:** For storing and retrieving document embeddings.
+- **HTML/CSS/JavaScript:** For the front-end interface.
+- **Jinja2:** Templating engine for rendering HTML pages.
 
 ## Installation Instructions:
 
