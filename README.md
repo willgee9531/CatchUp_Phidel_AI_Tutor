@@ -51,7 +51,7 @@ _Generated Response_
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/willgee9531/CatchUp_Phidel_AI_Tutor
    ```
 
 2. Navigate to the project directory:
